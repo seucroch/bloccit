@@ -1,7 +1,7 @@
 <h1><%= @topic.name %></h1>
 
 <% if can? :update, @topic %>
-  <%= link_to "Edit Topic", edit_topic_path(:id), class: 'btn btn-primary btn-mini' %>
+  <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-primary btn-mini' %>
 <% end %>
 
 <div class="row">
@@ -11,7 +11,7 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to post.title, [@topic, post] %>
+            <%= link_to post.title, [@topic,post] %>
           </h4>
             <small>
               submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
