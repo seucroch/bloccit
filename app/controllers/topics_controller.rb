@@ -42,4 +42,3 @@ class TopicsController < ApplicationController
   end
 
 end
-  

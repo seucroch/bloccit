@@ -13,14 +13,15 @@
           <h4 class="media-heading">
              <%= link_to (markdown post.title), [@topic, post] %>
              <%= image_tag(post.image_url) if post.image? %>
-      
           </h4>
             <small>
               <%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %>
             submitted <%= time_ago_in_words(post.created_at) %> ago by 
-            <%= post.user.name %><br/>
+            <%= post.user.name %>
             <%= post.comments.count %> Comments
             </small>
+            <%= render @comment %>
+
         </div>
       </div>
     <% end %>
