@@ -9,6 +9,10 @@
     </small>  
      <p><%= markdown @post.body %></p>
      <%= image_tag(@post.image_url) if @post.image? %> 
+
+     <% if can? :edit, @post %>
+      <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-large btn-block' %>
+     <% end %>
      
     <h2 class='js-comments-count'><%= @comments.count %> comments</h2>
     <div class='js-comments'>
@@ -25,10 +29,6 @@
     <% end %>
   </div>
 
-  <div class="span4">
-    <% if can? :edit, @post %>
-      <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-large btn-block' %>
-    <% end %>
-  </div>
+  
  
 </div>
