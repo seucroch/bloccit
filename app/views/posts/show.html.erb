@@ -10,6 +10,19 @@
      <p><%= markdown @post.body %></p>
      <%= image_tag(@post.image_url) if @post.image? %> 
      
+    <h2 class='js-comments-count'><%= @comments.count %> comments</h2>
+    <div class='js-comments'>
+      <%= render partial: "comments/comment", collection: @comments, locals: { topic: @topic, post: @post } %>
+    </div>
+
+    <% if can? :create, Comment %>
+      <hr/>
+      <a href="#" class="js-show-hide" data-selector="js-new-comment">Add Comment</a>
+      <br/>
+      <div class="js-new-comment">
+          <h4>New Comment</h4>
+          <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
+    <% end %>
   </div>
 
   <div class="span4">
@@ -17,5 +30,5 @@
       <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-large btn-block' %>
     <% end %>
   </div>
- <%= render (@comments) || "Be the first to comment." %>
+ 
 </div>
