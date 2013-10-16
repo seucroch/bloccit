@@ -1,7 +1,8 @@
-<h1><%= markdown @post.title %></h1>
-
 <div class="row">
   <div class="span8">
+
+     <%= render partial: 'votes/voter', locals: { topic: @topic, post: @post } %>
+     <h1><%= markdown @post.title %></h1>
      <small>
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
       submitted <%= time_ago_in_words(@post.created_at) %> ago by 
@@ -13,6 +14,13 @@
      <% if can? :edit, @post %>
       <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn-large btn-block' %>
      <% end %>
+     <div>
+      <h3><%= pluralize(@post.points, 'point') %></h3>
+      <small>
+        <%= pluralize(@post.up_votes, 'up vote') %>, 
+        <%= pluralize(@post.down_votes, 'down vote') %>
+      </small>
+    </div>
      
     <h2 class='js-comments-count'><%= @comments.count %> comments</h2>
     <div class='js-comments'>
@@ -26,9 +34,10 @@
       <div class="js-new-comment">
           <h4>New Comment</h4>
           <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
-    <% end %>
-  </div>
-
+          <% end %>
+      </div>
+      
+ 
   
  
 </div>

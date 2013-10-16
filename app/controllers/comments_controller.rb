@@ -20,4 +20,8 @@ class CommentsController < ApplicationController
       flash[:error] = "Error creating comment. Please try again."
     end
   end
+
+  def destroy
+    
+  end
 end
