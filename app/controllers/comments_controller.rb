@@ -1,9 +1,6 @@
 class CommentsController < ApplicationController
   respond_to :html, :js
 
-  def new
-  end
-
   def create
     @topic = Topic.find(params[:topic_id])
     @post = @topic.posts.find(params[:post_id])

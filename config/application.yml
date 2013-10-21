@@ -10,5 +10,5 @@ development:
 
 production:
   AWS_BUCKET: seucroch-bloccit-production
-  FACEBOOK_ID: 510573235700643
-  FACEBOOK_SECRET: 1a1cd1ad0b4a3e155bf3dbc823a9afd4
+  FACEBOOK_ID: 171687789697808
+  FACEBOOK_SECRET: 1ba53a630dadb2136535372ad6b6a2d6 
