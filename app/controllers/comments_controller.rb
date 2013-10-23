@@ -8,6 +8,8 @@ class CommentsController < ApplicationController
 
     @comment = current_user.comments.build(params[:comment])
     @comment.post = @post
+     @new_comment = Comment.new
+
 
     authorize! :create, @comment, message: "You need to be signed in to do that."
 
@@ -15,6 +17,9 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment was saved successfully."
     else
       flash[:error] = "Error creating comment. Please try again."
+    end
+    respond_with(@comment) do |f|
+      f.html { redirect_to [@topic, @post] }
     end
   end
   
