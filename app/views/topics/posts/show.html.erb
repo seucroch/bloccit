@@ -32,14 +32,18 @@
     </div>
 
     <% if can? :create, Comment %>
-      
-      <div class="js-new-comment">
+      <hr/>
+
+    <a href="#" class="js-show-hide" data-selector="js-new-comment">Add Comment</a>
+      <br/>
+      <div class="js-new-comment hide">
           <h4>New Comment</h4>
           <%= render partial: "comments/form", locals: { topic: @topic, post: @post, comment: @comment } %>
-          <% end %>
       </div>
+    <% end %>
+
+  </div>
       
  
   
- 
-</div>
+ </div>
