@@ -26,9 +26,9 @@
     </div>
     <%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post } %>
 
-    <h2 class='js-comments-count'><%= @comments.count %> comments</h2>
+    <h2 class='js-comments-count'><%= @comments.count %> Comments</h2>
     <div class='js-comments'>
-      <%= render partial: "comments/comment", collection: @comments, locals: { topic: @topic, post: @post } %>
+      <%= render partial: "comments/comment", collection: @comments %>
     </div>
 
     <% if can? :create, Comment %>
